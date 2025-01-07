@@ -1,4 +1,6 @@
-package Projeto_padaria;
+package Projeto_padaria.CodigoVenda;
+
+import Projeto_padaria.CodigoProduto.Produto;
 
 public class ItemVenda {
     private Produto produto;

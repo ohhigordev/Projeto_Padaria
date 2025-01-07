@@ -1,16 +1,18 @@
-package Projeto_padaria;
+package Projeto_padaria.CodigoProduto;
 
 public class Produto {
     private int id;
     private String nome;
     private double preco;
     private int quantidade;
+    private String categoria;
 
-    public Produto(int id, String nome, double preco, int quantidade) {
+    public Produto(int id, String nome, double preco, int quantidade, String categoria) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
+        this.categoria = categoria;
     }
 
     public int getId() {
@@ -45,6 +47,14 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
@@ -52,6 +62,7 @@ public class Produto {
                 ", nome='" + nome + '\'' +
                 ", preco=" + preco +
                 ", quantidade=" + quantidade +
+                ", categoria='" + categoria + '\'' +
                 '}';
     }
 }

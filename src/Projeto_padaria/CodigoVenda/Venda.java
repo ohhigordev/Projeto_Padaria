@@ -1,4 +1,7 @@
-package Projeto_padaria;
+package Projeto_padaria.CodigoVenda;
+
+import Projeto_padaria.CodigoProduto.Estoque;
+import Projeto_padaria.CodigoProduto.Produto;
 
 import java.util.ArrayList;
 import java.util.List;

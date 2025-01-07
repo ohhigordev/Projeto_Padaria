@@ -1,4 +1,4 @@
-package Projeto_padaria;
+package Projeto_padaria.CodigoFuncionarios;
 
 public class Funcionario {
     private int id;

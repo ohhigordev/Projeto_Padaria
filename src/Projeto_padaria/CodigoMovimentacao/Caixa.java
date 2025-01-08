@@ -1,4 +1,4 @@
-package Projeto_padaria.CodigoMovimentação;
+package Projeto_padaria.CodigoMovimentacao;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -20,23 +20,23 @@ public class Caixa {
     }
 
 
-    // Registrar entrada corrigido
-    public void registrarEntrada(String descricao, double valor) {
+    // Registrar entrada com categoria
+    public void registrarEntrada(String descricao, double valor, String categoria) {
         if( valor <= 0) { // Validação de valores inválidos
             System.out.println("Erro: O valor da entrada deve ser maior que zero.");
             return;
         }
         saldo += valor; // Atualizar saldo
-        movimentacoes.add(new Movimentacao(descricao, valor,"ENTRADA"));
-        System.out.println("Entrada registrada: " + descricao + " - R$" + valor);
+        movimentacoes.add(new Movimentacao(descricao, valor,"ENTRADA", categoria));
+        System.out.println("Entrada registrada: " + descricao + " - " + categoria + " - R$" + valor);
     }
 
     public double getSaldoAtual(){
         return saldo;
     }
 
-    // Registrar saída
-    public void registrarSaida(String descricao, double valor) {
+    // Registrar saída com categoria
+    public void registrarSaida(String descricao, double valor, String categoria) {
         if( valor <= 0) { // Validação de valores inválidos
             System.out.println("Erro: O valor da entrada deve ser maior que zero.");
             return;
@@ -46,18 +46,21 @@ public class Caixa {
             return;
         }
         saldo -= valor; // Atualizar saldo
-        movimentacoes.add(new Movimentacao(descricao, valor, "SAIDA")); // Registrar movimentação de saída
-        System.out.println("Saída registrada: " + descricao + " - R$" + valor);
+        movimentacoes.add(new Movimentacao(descricao, valor, "SAIDA", categoria)); // Registrar movimentação de saída
+        System.out.println("Saída registrada: " + descricao + " - " + categoria + " - R$" + valor);
     }
 
 
-    // Exibir as movimentações
-    public void exibirMovimentacoes() {
-        System.out.println("Histórico de movimentações");
+    // Exibir as movimentações por categoria
+    public void exibirMovimentacoes(String categoria) {
+        System.out.println("Movimentações na categoria: " + categoria);
         for(Movimentacao movimentacao : movimentacoes) {
-            System.out.println(movimentacao.getDescricao() + " - "
-                               + movimentacao.getTipo() + " : "
-                               + formatarValor(movimentacao.getValor()));
+            if(movimentacao.getCategoria().equalsIgnoreCase(categoria)) {
+                System.out.println(movimentacao.getDescricao() + " - "
+                                   + movimentacao.getTipo() + " : "
+                                   + formatarValor(movimentacao.getValor()));
+
+            }
         }
         System.out.println("Saldo atual: " + formatarValor(saldo));
     }
